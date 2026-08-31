@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aditya — Portfolio</title>
+<meta name="description" content="Aditya — BCA student, front-end & creative developer. Portfolio built around a car assembling itself, one scroll at a time." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="assets/spline-background.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rough.js/4.6.6/rough.min.js"></script>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="#top" class="nav-tag">ADITYA</a>
+  <ul class="nav-links">
+    <li><a href="#about" class="wavy">About</a></li>
+    <li><a href="#skills" class="wavy">Skills</a></li>
+    <li><a href="#projects" class="wavy">Projects</a></li>
+    <li><a href="#hackathons" class="wavy">Hackathons</a></li>
+    <li><a href="#contact" class="wavy">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ================= HERO — sketchy, no video ================= -->
+<section id="top" class="hero" aria-label="Intro">
+
+  <div class="hero-spline-bg" id="heroSplineBg" aria-hidden="true">
+    <spline-viewer url="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode" events-target="global"></spline-viewer>
+    <div class="hero-spline-tint"></div>
+    <div class="hero-spline-hatch"></div>
+    <div class="hero-spline-vignette"></div>
+    <div class="hero-cursor-glow" id="heroCursorGlow"></div>
+    <div class="hero-cursor-sketch" id="heroCursorSketch"></div>
+    <div class="hero-spline-fade"></div>
+  </div>
+
+  <div class="hero-doodle-layer" aria-hidden="true">
+    <!-- hand-drawn circle scribbling around the headline, draws in on load -->
+    <svg class="parallax-el" data-speed="0.06" data-centered="true" width="640" height="260" viewBox="0 0 640 260" style="left:50%; top:38%; transform:translate(-50%,-50%);">
+      <path class="sketch-path in" style="--len:1450;" d="M70,140 C40,60 180,15 320,20 C480,25 610,60 605,135 C600,215 460,245 320,242 C170,239 95,215 78,150"
+        fill="none" stroke="#2d5da1" stroke-width="2.5" opacity="0.55"/>
+    </svg>
+
+    <!-- dashed arrow pointing toward the scroll cue -->
+    <svg class="parallax-el" data-speed="0.12" width="140" height="220" viewBox="0 0 140 220" style="right:6%; bottom:8%;">
+      <path class="sketch-path in" style="--len:260;" d="M20,10 C60,60 30,140 70,190" fill="none" stroke="#2d2d2d" stroke-width="2.5" stroke-dasharray="7 8" opacity="0.5"/>
+      <path d="M55,178 L70,192 L84,174" fill="none" stroke="#2d2d2d" stroke-width="2.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- small scribble accent, top left -->
+    <svg class="parallax-el" data-speed="0.18" width="90" height="90" viewBox="0 0 90 90" style="left:7%; top:16%;">
+      <path class="sketch-path in" style="--len:140;" d="M10,45 C10,20 35,8 45,25 C55,42 30,48 35,60 C40,72 65,65 70,45" fill="none" stroke="#ff4d4d" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Sketchbook · Portfolio · 2026</span>
+    <h1 class="hero-title">PORTFOLIO<span class="bang">.</span></h1>
+    <p class="hero-sub">Hi, I'm <strong>Aditya</strong> — a BCA student who'd rather sketch an interface than fill in a template. Scroll down, nothing here is a straight line.</p>
+    <div class="hero-cta-row">
+      <a href="#projects" class="btn">See my work</a>
+      <a href="#contact" class="btn secondary">Say hello</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2d2d2d" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section-pad">
+  <div class="wrap">
+    <span class="eyebrow-tag reveal">Who am I</span>
+    <h2 class="section-title reveal">A bit more about me</h2>
+
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>I'm Aditya — a BCA (Semester 5) student at SVICS, under KSV University in Gandhinagar, Gujarat. I like building things that feel handmade even when they run on code: scroll stories, WebRTC calls, tiny 3D worlds.</p>
+        <p>Most of my recent hours go into front-end craft — scroll-driven animation, custom cursors, and shaking off the "generic AI look" one wobble at a time. I've also spent time deep in full-stack territory: Node, Socket.IO, WebRTC mesh calling, MongoDB, PHP.</p>
+        <p>Outside of solo projects, I show up to hackathons — most recently the Odoo Hackathon 2026 and the Meta × PyTorch OpenEnv Hackathon in Bengaluru.</p>
+        <a href="https://github.com/lightningXadi" target="_blank" rel="noopener" class="btn" style="margin-top:8px;">See my GitHub →</a>
+      </div>
+
+      <div class="about-card reveal">
+        <h3>Quick facts</h3>
+        <div class="stat-row"><span>Studying</span><strong>BCA, Sem 5</strong></div>
+        <div class="stat-row"><span>College</span><strong>SVICS</strong></div>
+        <div class="stat-row"><span>University</span><strong>KSV, Gandhinagar</strong></div>
+        <div class="stat-row"><span>Based in</span><strong>Gujarat, IN</strong></div>
+        <div class="stat-row"><span>GitHub</span><strong>lightningXadi</strong></div>
+        <div class="stat-row"><span>Learning now</span><strong>JavaScript</strong></div>
+        <div class="stat-row"><span>Up next</span><strong>Three.js / WebGL</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap divider-wrap reveal" aria-hidden="true">
+  <svg width="100%" height="34" viewBox="0 0 1080 34" preserveAspectRatio="none" style="display:block;">
+    <path class="sketch-path" d="M4,20 C120,4 220,32 340,16 C460,2 560,30 680,14 C800,0 900,28 1020,12 C1050,9 1065,12 1076,17" fill="none" stroke="#2d2d2d" stroke-width="2" opacity="0.35"/>
+  </svg>
+</div>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section-pad">
+  <div class="wrap">
+    <span class="eyebrow-tag reveal">Toolkit</span>
+    <h2 class="section-title reveal">What I build with</h2>
+    <p class="section-lede reveal">A working stack of languages and tools, plus what's actively on my desk right now.</p>
+
+    <div class="skills-grid">
+      <div class="skill-chip reveal">C++</div>
+      <div class="skill-chip reveal">Java</div>
+      <div class="skill-chip reveal">Python</div>
+      <div class="skill-chip reveal">PHP</div>
+      <div class="skill-chip reveal">MongoDB</div>
+      <div class="skill-chip reveal">UI / UX Design</div>
+      <div class="skill-chip reveal">Figma</div>
+      <div class="skill-chip next reveal">JavaScript — learning</div>
+    </div>
+    <p class="skill-note reveal">Next on the list: <strong>Three.js</strong> &amp; <strong>WebGL</strong> — already poking at both in the anime-viewer project below.</p>
+  </div>
+</section>
+
+<div class="wrap divider-wrap reveal" aria-hidden="true">
+  <svg width="100%" height="34" viewBox="0 0 1080 34" preserveAspectRatio="none" style="display:block;">
+    <path class="sketch-path" d="M4,14 C120,30 220,2 340,18 C460,32 560,4 680,20 C800,34 900,6 1020,22 C1050,25 1065,22 1076,17" fill="none" stroke="#ff4d4d" stroke-width="2" opacity="0.35"/>
+  </svg>
+</div>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="section-pad">
+  <div class="wrap">
+    <span class="eyebrow-tag reveal">Selected work</span>
+    <h2 class="section-title reveal">Things I built</h2>
+    <p class="section-lede reveal">A mix of shipped apps, hackathon builds, and ongoing experiments.</p>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="tape"></div>
+        <span class="project-status shipped">Shipped</span>
+        <h3>AIR</h3>
+        <span class="stack">Node.js · Socket.io · WebRTC mesh</span>
+        <p>Voice-only group calling for up to 6 people, deployed on Render. Went through a full redesign journey — from atmospheric dark to a chunky retro UI-kit look — plus PWA installability and mobile fixes.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="tape"></div>
+        <span class="project-status explore">In progress</span>
+        <h3>3D Anime Viewer</h3>
+        <span class="stack">Three.js · GLB models</span>
+        <p>An interactive character viewer where the head and body track the cursor in real time — my first real dive into Three.js and 3D on the web.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="tape"></div>
+        <span class="project-status shipped">Shipped</span>
+        <h3>Whisper</h3>
+        <span class="stack">Vercel · Render · MongoDB · WebRTC</span>
+        <p>A chat &amp; calling app. Solved cross-network audio issues by wiring in a TURN server via ExpressTurn — the unglamorous part of real-time video that actually matters.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="tape"></div>
+        <span class="project-status hack">Academic</span>
+        <h3>CEMS</h3>
+        <span class="stack">PHP · MySQL</span>
+        <p>College Event Management System — my final year project, later extended with additional presentation slides covering scope and implementation.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="tape"></div>
+        <span class="project-status explore">Experiment</span>
+        <h3>Aeonis</h3>
+        <span class="stack">Three.js</span>
+        <p>A browser-based open-world multiplayer sandbox with procedural terrain, a day/night cycle, and humanoid character classes.</p>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="tape"></div>
+        <span class="project-status explore">Experiment</span>
+        <h3>Aura</h3>
+        <span class="stack">Anthropic API</span>
+        <p>A simple, warm mobile-styled chatbot built directly on top of Claude's API — small in scope, tidy in execution.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= HACKATHONS ================= -->
+<section id="hackathons" class="section-pad">
+  <div class="wrap">
+    <span class="eyebrow-tag reveal">On the ground</span>
+    <h2 class="section-title reveal">Hackathons</h2>
+    <p class="section-lede reveal">Building fast, under pressure, with people I just met.</p>
+
+    <div class="hack-row">
+      <div class="hack-note reveal">
+        <div class="thumbtack"></div>
+        <h3>Odoo Hackathon 2026</h3>
+        <span class="place">Team build · 2026</span>
+        <p>Shipped a working product end-to-end within the event window — my kind of pressure test.</p>
+      </div>
+      <div class="hack-note reveal">
+        <div class="thumbtack"></div>
+        <h3>Meta × PyTorch OpenEnv Hackathon</h3>
+        <span class="place">Bengaluru · large prize pool</span>
+        <p>Competed at one of the bigger hackathons on the calendar this year, working with PyTorch's OpenEnv tooling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section-pad">
+  <div class="wrap">
+    <span class="eyebrow-tag reveal">Say hi</span>
+    <h2 class="section-title reveal">Say hello</h2>
+
+    <div class="contact-wrap">
+      <div class="contact-copy reveal">
+        <p>Got a project, a hackathon team slot, or just want to talk about scroll animation and Three.js? My inbox is open.</p>
+        <ul class="link-list">
+          <li><a href="https://github.com/lightningXadi" target="_blank" rel="noopener">↳ github.com/lightningXadi</a></li>
+          <li><a href="mailto:hello@example.com">↳ hello@example.com</a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='Sent ✓';">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="What should I call you?" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@somewhere.com" required />
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="msg" placeholder="Tell me what you're building…" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Sketched, scrolled, and shipped by <span class="wavy">Aditya</span> — © 2026</p>
+  </div>
+</footer>
+
+<script type="module" src="assets/script.js"></script>
+<script type="module" src="assets/spline-background.js"></script>
+<script type="module" src="assets/rough-buttons.js"></script>
+</body>
+</html>

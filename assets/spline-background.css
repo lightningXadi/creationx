@@ -1,0 +1,149 @@
+/* ============================================================
+   HERO SPLINE BACKGROUND
+   Live, interactive @splinetool/viewer scene rendered behind the
+   PORTFOLIO headline. The scene itself is untouched — same URL,
+   same runtime, same mouse-driven behavior — this file only
+   re-tones its rendered pixels to match the site's hand-drawn
+   paper/ink look, and fills the whole hero section.
+   ============================================================ */
+
+.hero-spline-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg);
+  isolation: isolate;
+  will-change: opacity;
+  /* Promote to its own compositor layer so the live WebGL canvas
+     repainting doesn't force the rest of the page (hover states,
+     scrolling) to repaint along with it. */
+  transform: translateZ(0);
+  /* the wrapper itself doesn't need pointer events; the live
+     scene re-enables them on itself below, so mouse hover still
+     drives the 3D scene's own animation */
+  pointer-events: none;
+}
+
+.hero-spline-bg spline-viewer {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+
+  /* Sketch re-tone: strong invert turns the scene's dark theme into a
+     paper-matching light tone AND turns its original green hover-glow
+     into the pink you liked. No drop-shadow here anymore — it was
+     being recomputed every single frame on a full-screen live canvas,
+     which is the likely cause of the scroll/hover lag. */
+  filter: invert(0.86) contrast(1.35) brightness(0.86) saturate(1.5) sepia(0.05);
+}
+
+/* Texture overlays sit above the live scene but never capture the
+   mouse, so hover interaction with the 3D scene stays fully live. */
+.hero-spline-tint,
+.hero-spline-hatch,
+.hero-spline-vignette,
+.hero-spline-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-spline-tint {
+  background:
+    repeating-linear-gradient(43deg, transparent 0 9px, rgba(45, 45, 45, 0.05) 9px 10px),
+    linear-gradient(90deg, rgba(45, 93, 161, 0.04), transparent 45%, rgba(45, 45, 45, 0.02));
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+}
+
+.hero-spline-hatch {
+  background:
+    repeating-linear-gradient(42deg, transparent 0 10px, rgba(45, 45, 45, 0.04) 10px 11px),
+    repeating-linear-gradient(-42deg, transparent 0 32px, rgba(45, 45, 45, 0.025) 32px 33px);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+}
+
+/* Evens out the hotspot in the middle of the grid against the calmer
+   edges/sides, so brightness reads balanced across the whole scene
+   instead of one bright patch pulling all the attention. */
+.hero-spline-vignette {
+  background: radial-gradient(
+    ellipse 65% 60% at 50% 42%,
+    rgba(15, 12, 9, 0.55) 0%,
+    rgba(15, 12, 9, 0.32) 40%,
+    rgba(15, 12, 9, 0.1) 70%,
+    transparent 92%
+  );
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
+
+/* Cheap, static fade into the page below — replaces the previous
+   mask-image approach, which forced the browser to recompute masking
+   on the live canvas every frame and was part of the perf hit. */
+.hero-spline-fade {
+  background: linear-gradient(to bottom, transparent 0%, transparent 66%, var(--bg) 96%);
+}
+
+/* ------------------------------------------------------------
+   Custom cursor-following pink glow.
+   The Spline scene's own built-in glow has a follow-delay baked
+   into the scene file that can't be adjusted from outside it. This
+   is a separate, independent layer positioned directly under the
+   real cursor via JS (see spline-background.js) — no lag, full
+   control on our side. Uses screen blend so it reads as light
+   rather than a flat colored circle.
+   ------------------------------------------------------------ */
+.hero-cursor-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  margin-left: -210px;
+  margin-top: -210px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 92, 200, 0.55) 0%,
+    rgba(255, 92, 200, 0.28) 32%,
+    rgba(255, 92, 200, 0.08) 60%,
+    transparent 78%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translate3d(-9999px, -9999px, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
+}
+
+.hero-cursor-glow.is-active {
+  opacity: 1;
+}
+
+/* Rough.js-drawn hand-sketched ring around the cursor glow. Redrawn
+   periodically (not every frame) with slightly randomized wobble each
+   time, so it visibly reads as sketched rather than a static shape. */
+.hero-cursor-sketch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170px;
+  height: 170px;
+  margin-left: -85px;
+  margin-top: -85px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-9999px, -9999px, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
+}
+
+.hero-cursor-sketch.is-active {
+  opacity: 0.8;
+}
